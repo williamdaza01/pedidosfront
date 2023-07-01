@@ -1,2 +1,9 @@
-export type TableColumn = string;
-export type TableRow = string[];
+export interface TableColumn {
+  key: string;
+  label: string;
+}
+
+export interface TableRow {
+  id: number;
+  cells: any[];
+}

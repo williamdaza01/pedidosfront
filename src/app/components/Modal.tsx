@@ -1,17 +1,11 @@
+import { ModalProps } from "@/types/ModalTypes";
 import React from "react";
 
-interface ModalProps {
-  isOpen: boolean;
-  content: string;
-  onClose: () => void;
-}
-
 const Modal: React.FC<ModalProps> = ({ isOpen, content, onClose }) => {
-  const modalClasses = isOpen
-    ? "relative z-10"
-    : "hidden";
-    console.log(isOpen, content);
-    
+  const modalClasses = isOpen ? "relative z-10" : "hidden";
+
+  const contentJson = JSON.parse(content ? content : '');
+
   return (
     <>
       <div
@@ -26,18 +20,64 @@ const Modal: React.FC<ModalProps> = ({ isOpen, content, onClose }) => {
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
               <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                <div className="sm:flex sm:justify-center">
+                  <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left flex flex-col justify-center">
                     <h3
                       className="text-base font-semibold leading-6 text-gray-900"
                       id="modal-title"
                     >
                       Info
                     </h3>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">
-                        {content}
-                      </p>
+                    <div className="mt-2 flex flex-col gap-3">
+                      {contentJson.phone ? (
+                        <>
+                          <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-900">
+                              Nombre:{" "}
+                            </span>
+                            {contentJson.name}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-900">
+                              Telefono:{" "}
+                            </span>
+                            {contentJson.phone}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-900">
+                              Email:{" "}
+                            </span>
+                            {contentJson.email}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-900">
+                              Direccion:{" "}
+                            </span>
+                            {contentJson.address}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-900">
+                              Ciudad:{" "}
+                            </span>
+                            {contentJson.city}
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-900">
+                              Nombre:{" "}
+                            </span>
+                            {contentJson.name}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-900">
+                              Precio:{" "}
+                            </span>
+                            {contentJson.price}
+                          </span>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

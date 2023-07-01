@@ -5,6 +5,7 @@ import Logo from "@/Icons/Logo";
 import ProductsIcon from "@/Icons/ProductsIcon";
 import SummaryIcon from "@/Icons/SummaryIcon";
 import UsersIcon from "@/Icons/UsersIcon";
+import OrderIcon from "@/Icons/OrderIcon";
 import { MenuItem } from "@/types/MenuType";
 import classNames from "classnames";
 import Link from "next/link";
@@ -15,8 +16,8 @@ const menuItems: MenuItem[] = [
   { id: 1, label: "Home", icon: HomeIcon, link: "/" },
   { id: 2, label: "Usuarios", icon: UsersIcon, link: "/users" },
   { id: 3, label: "Productos", icon: ProductsIcon, link: "/products" },
-  { id: 4, label: "Resumen", icon: SummaryIcon, link: "/summary" },
-  { id: 5, label: "Pedidos", icon: SummaryIcon, link: "/orders" },
+  { id: 4, label: "Pedidos", icon: OrderIcon, link: "/orders" },
+  { id: 5, label: "Resumen", icon: SummaryIcon, link: "/summary" },
 ];
 
 const Sidebar = () => {

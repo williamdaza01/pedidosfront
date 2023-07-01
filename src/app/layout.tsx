@@ -1,4 +1,5 @@
 import "./globals.css";
+import "tw-elements/dist/css/tw-elements.min.css";
 import { Inter } from "next/font/google";
 import Sidebar from "./components/Sidebar";
 import React from "react";
@@ -21,7 +22,10 @@ export default function RootLayout({
         <React.Fragment>
           <div className="h-screen flex flex-row justify-start">
             <Sidebar/>
-            <div className="flex-1 p-4 bg-blue-950 text-white border-1 border-dashed">{children}</div>
+            <div className="flex-1 p-4 bg-blue-950 text-white border-1 border-dashed flex flex-col items-stretch justify-center">
+              <h1 className="font-bold text-4xl text-center pb-6">Dashboard</h1>
+              {children}
+            </div>
           </div>
         </React.Fragment>        
       </body>

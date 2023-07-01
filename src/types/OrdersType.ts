@@ -1,5 +1,5 @@
 export interface OrderType {   
-    id: number;
+    id?: number;
     date: Date;
     order_state: string;
     is_paid: boolean;

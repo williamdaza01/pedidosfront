@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 import React, { useMemo, useState } from "react";
 
 const menuItems: MenuItem[] = [
-  { id: 1, label: "Home", icon: HomeIcon, link: "/" },
+  { id: 1, label: "Home", icon: HomeIcon, link: "/summary" },
   { id: 2, label: "Usuarios", icon: UsersIcon, link: "/users" },
   { id: 3, label: "Productos", icon: ProductsIcon, link: "/products" },
   { id: 4, label: "Pedidos", icon: OrderIcon, link: "/orders" },

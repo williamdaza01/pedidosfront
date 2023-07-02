@@ -702,7 +702,7 @@ const FormItem: React.FC<ModalProps> = ({
                         data-te-ripple-init
                         data-te-ripple-color="light"
                       >
-                        Crear Usuario
+                        {onCreate ? (<>Crear</>) : (<>Editar</>)} {entity === 'users' ? (<>Usuario</>) : entity === 'products' ? (<>Producto</>) : entity === 'orders' ? (<>Pedido</>) : (<></>)}
                       </button>
                       <button
                         type="button"

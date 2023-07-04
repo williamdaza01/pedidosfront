@@ -2,7 +2,7 @@ import { OrderType } from "@/types/OrdersType";
 
 export const getOrders = async () => {
   try {
-    const response = await fetch('http://localhost:8000/orders-app/orders', {
+    const response = await fetch(`https://pedidosapi.vercel.app/orders-app/orders`, {
         method: 'GET',
       });
     if (!response.ok) {
@@ -18,13 +18,13 @@ export const getOrders = async () => {
 };
 
 export const getOrdersById = async (id: number) =>{
-  const res = await fetch(`http://localhost:8000/orders-app/orders/${id}`);
+  const res = await fetch(`https://pedidosapi.vercel.app/orders-app/orders/${id}`);
   const data = await res.json();
   return data;
 }
 
 export const createOrder = async (order: OrderType) => {
-  const res = await fetch("http://localhost:8000/orders-app/orders/", {
+  const res = await fetch(`https://pedidosapi.vercel.app/orders-app/orders/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export const updateOrder = async (
   updatedOrder: OrderType
 ) => {
   const res = await fetch(
-    `http://localhost:8000/orders-app/orders/${orderId}/`,
+    `https://pedidosapi.vercel.app/orders-app/orders/${orderId}/`,
     {
       method: "PUT",
       headers: {
@@ -55,7 +55,7 @@ export const updateOrder = async (
 
 export const deleteOrder = async (orderId: number) => {
   const res = await fetch(
-    `http://localhost:8000/orders-app/orders/${orderId}`,
+    `https://pedidosapi.vercel.app/orders-app/orders/${orderId}`,
     {
       method: "DELETE",
     }

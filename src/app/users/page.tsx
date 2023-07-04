@@ -77,14 +77,10 @@ const UsersPage = () => {
     setShowModal(false);
   };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  const columns: TableColumn[] = Object.keys(users[0]).map((key) => ({
+  const columns: TableColumn[] = users.length > 0 ? Object.keys(users[0]).map((key) => ({
     key,
     label: key,
-  }));
+  })) : [];
   const rows: TableRow[] = users.map((user: UserType) => {
     const values = Object.values(user);
     const row: TableRow = {
@@ -126,6 +122,31 @@ const UsersPage = () => {
     });
     setSortedRowsByEmail(sorted);
   };
+
+  if (users.length === 0) {
+    return (
+      <div className="flex flex-col gap-5">
+        No se han creado Usuarios.
+        <button
+          className="inline-block mt-4 mb-4 rounded bg-emerald-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-emerald-800 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-emerald-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+          onClick={handleModalOpen}
+        >
+          Crear Usuario
+        </button>
+      <FormItem
+        isOpen={showModal}
+        entity="users"
+        onClose={handleModalClose}
+        onCreate={handleCreateUser}
+      />
+      </div>
+    );
+  }
+
+  
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>

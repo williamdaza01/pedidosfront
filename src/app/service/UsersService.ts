@@ -1,14 +1,13 @@
 import { UserType } from "@/types/UserTypes";
-import { json } from "stream/consumers";
 
 export const getUsers = async () => {
-  const res = await fetch("http://localhost:8000/orders-app/users");
+  const res = await fetch(`https://pedidosapi.vercel.app/orders-app/users`);
   const data = await res.json();
   return data;
 };
 
 export const getUsersById = async (id: number) =>{
-  const res = await fetch(`http://localhost:8000/orders-app/users/${id}`);
+  const res = await fetch(`https://pedidosapi.vercel.app/orders-app/users/${id}`);
   const data = await res.json();
   return data;
 }
@@ -16,7 +15,7 @@ export const getUsersById = async (id: number) =>{
 export const createUsers = async (user?: UserType) => {
   const userStr = JSON.stringify(user);
   
-  const res = await fetch("http://localhost:8000/orders-app/users/", {
+  const res = await fetch(`https://pedidosapi.vercel.app/orders-app/users/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +31,7 @@ export const updateUsers = async (
   updatedUsers: UserType
 ) => {
   const res = await fetch(
-    `http://localhost:8000/orders-app/users/${userId}/`,
+    `https://pedidosapi.vercel.app/orders-app/users/${userId}/`,
     {
       method: "PUT",
       headers: {
@@ -47,7 +46,7 @@ export const updateUsers = async (
 
 export const deleteUser = async (userId: number) => {
   const res = await fetch(
-    `http://localhost:8000/orders-app/users/${userId}`,
+    `https://pedidosapi.vercel.app/orders-app/users/${userId}`,
     {
       method: "DELETE",
     }

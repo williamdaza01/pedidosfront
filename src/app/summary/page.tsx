@@ -18,8 +18,8 @@ const SummaryPage = async () => {
           <span> <span className="text-slate-800 font-bold"> Numero de pedidos: </span> {ordersNumber}</span>
           <span> <span className="text-slate-800 font-bold"> Numero de clientes: </span> {clientsNumber}</span>
           <span> <span className="text-slate-800 font-bold"> Ganancias del ultimo mes: </span>{lastIncomes}</span>
-          <span> <span className="text-slate-800 font-bold"> Ciudad con mas pedidos: </span>{cityMostOrders.city} - {cityMostOrders.num_pedidos}</span>
-          <span> <span className="text-slate-800 font-bold"> Producto mejor vendidos: </span>{bestselling.product__name} - {bestselling.total_vendido}</span>
+          <span> <span className="text-slate-800 font-bold"> Ciudad con mas pedidos: </span>{cityMostOrders?.city} - {cityMostOrders?.num_pedidos ?? 'N/A'}</span>
+          <span> <span className="text-slate-800 font-bold"> Producto mejor vendidos: </span>{bestselling?.product__name} - {bestselling?.total_vendido ?? 'N/A'}</span>
         </div>
       </div>
     </>

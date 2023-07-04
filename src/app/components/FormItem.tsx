@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Select, initTE, Input} from "tw-elements";
 import { getCities, getUsers, getUsersById } from "../service/UsersService";
 import { ModalProps } from "@/types/ModalTypes";
 import { UserType } from "@/types/UserTypes";
@@ -18,7 +17,6 @@ const FormItem: React.FC<ModalProps> = ({
   onEdit,
   idItem
 }) => {
-  initTE({Select, Input})
   const [arrDepartments, setArrDepartments] = useState([]);
   const [arrUsers, setArrUsers] = useState<UserType[]>([]);
   const [formuser, setFormUser] = useState<UserType>();

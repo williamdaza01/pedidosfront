@@ -1,13 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Toast, initTE } from "tw-elements";
 
 interface ToastProps {
   content: string;
 }
 
 const ToastComponent: React.FC<ToastProps> = ({ content }) => {
-  initTE({ Toast });
   const [isVisible, setIsVisible] = useState(false);
   const toastDuration = 2000;
 
